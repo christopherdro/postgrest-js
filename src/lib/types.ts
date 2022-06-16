@@ -1,5 +1,3 @@
-import crossFetch from 'cross-fetch'
-
 export type Fetch = typeof fetch
 
 /**
@@ -66,8 +64,6 @@ export abstract class PostgrestBuilder<T> implements PromiseLike<PostgrestRespon
     let _fetch: Fetch
     if (builder.fetch) {
       _fetch = builder.fetch
-    } else if (typeof fetch === 'undefined') {
-      _fetch = crossFetch
     } else {
       _fetch = fetch
     }
